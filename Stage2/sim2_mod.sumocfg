@@ -1,0 +1,12 @@
+<configuration>
+    <input>
+        <net-file value="net_xml\frag_krakow_2_mod.net.xml"/>
+        <route-files value="routes\routes2_mod.xml"/>
+    </input>
+    <time>
+        <end value="3600"/>
+    </time>
+    <output>
+        <tripinfo-output value="output\tripinfo2_mod.xml"/>
+    </output>
+</configuration>
