@@ -1,0 +1,10 @@
+<configuration>
+    <input>
+        <net-file value="C:\Users\USER\Desktop\MiSS\Repo\MiSS_Braess_Paradox\Stage3\net_xml\big_fragment_krakow_without_edge.net.xml"/>
+        <route-files value="C:\Users\USER\Desktop\MiSS\Repo\MiSS_Braess_Paradox\Stage3\net_xml\big_fragment_krakow_without_edge.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="60800"/>
+    </time>
+</configuration>
