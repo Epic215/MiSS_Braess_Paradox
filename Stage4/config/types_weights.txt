@@ -1,0 +1,11 @@
+highway.primary 12.0
+highway.primary_link 10.0
+highway.secondary 9.0
+highway.secondary_link 5.5
+highway.tertiary 4.0
+highway.tertiary_link 3.5
+highway.unclassified 2.5
+highway.residential 2.0
+highway.service 1.5
+highway.living_street 1.0
+highway.track 1.0

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 2026-05-07T08:13:16.457478+01:00 by Eclipse SUMO sumo 1.26.0
+<sumoConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+
+    <input>
+        <net-file value="net_xml/big_fragment_krakow_without_edge.net.xml"/>
+        <route-files value="output/krakow_sim_without_edge/routes.rou.xml"/>
+        <additional-files value="config/edge_data_37830025#0.add.xml"/>
+    </input>
+
+    <output>
+        <summary-output value="output/krakow_sim_without_edge/summary.xml"/>
+        <tripinfo-output value="output/krakow_sim_without_edge/tripinfo.xml"/>
+        <tripinfo-output.write-unfinished value="true"/>
+        <vehroute-output value="output/krakow_sim_without_edge/vehroutes.xml"/>
+        <vehroute-output.incomplete value="true"/>
+        <statistic-output value="output/krakow_sim_without_edge/statistics.xml"/>
+    </output>
+
+    <time>
+        <begin value="0"/>
+        <end value="86400"/>
+        <step-length value="0.5"/>
+    </time>
+
+    <processing>
+        <ignore-route-errors value="true"/>
+        <time-to-teleport value="120"/>
+        <max-depart-delay value="120"/>
+    </processing>
+
+    <report>
+        <no-step-log value="true"/>
+    </report>
+
+    <gui_only>
+        <quit-on-end value="true"/>
+    </gui_only>
+
+</sumoConfiguration>
+-->
+
+<statistics xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/statistic_file.xsd">
+    <performance clockBegin="496742.49" clockEnd="496818.82" clockDuration="76.33" traciDuration="1863.83" realTimeFactor="1131.87" vehicleUpdatesPerSecond="102199.70" personUpdatesPerSecond="0.00" begin="0.00" end="86400.00" duration="86400.00"/>
+    <vehicles loaded="7200" inserted="7197" running="0" waiting="0"/>
+    <teleports total="135" jam="89" yield="9" wrongLane="37"/>
+    <safety collisions="0" emergencyStops="0" emergencyBraking="0"/>
+    <persons loaded="0" running="0" jammed="0"/>
+    <personTeleports total="0" abortWait="0" wrongDest="0"/>
+    <vehicleTripStatistics count="7197" routeLength="4354.77" speed="8.43" duration="541.98" waitingTime="142.98" timeLoss="203.91" departDelay="0.29" departDelayWaiting="0.00" totalTravelTime="3900655.50" totalDepartDelay="2104.00"/>
+    <pedestrianStatistics number="0" routeLength="0.00" duration="0.00" timeLoss="0.00"/>
+    <rideStatistics number="0"/>
+    <transportStatistics number="0"/>
+</statistics>

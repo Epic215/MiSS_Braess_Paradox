@@ -1,0 +1,7 @@
+<additional>
+  <edgeData id="edge_stats"
+            file="../output/krakow_sim_without_edge/edge_data.xml"
+            begin="0"
+            end="84600"
+            excludeEmpty="true"/>
+</additional>
