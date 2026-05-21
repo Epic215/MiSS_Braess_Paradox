@@ -1,0 +1,353 @@
+============================================================
+SEED: 144
+============================================================
+Generowanie tripów startowych...
+Generowanie tripów flow...
+Generowanie tras (baseline)...
+Success.
+Symulacja baseline...
+
+--- METRYKA GŁÓWNA ---
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11197471.0s
+
+--- SZCZEGÓŁY ---
+  Ukończone przejazdy                   16400.00
+  Śr. czas podróży [s]                    682.77
+  Śr. czas oczekiwania [s]                166.69
+  Śr. strata czasu [s]                    293.95
+  Łączna strata czasu [s]             4820709.14
+  Śr. dł. trasy [m]                      4985.66
+
+--- SUMMARY ---
+  Maks. pojazdów na sieci:    2536
+  Maks. oczekujących:         465
+  Śr. prędkość [m/s]:         7.53
+  Łącznie ukończonych:        16400
+  Odrzucone:                  0
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11197471.0s
+
+--- Krawędź: 475556403#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16384
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      10862901.0s
+  vs BASELINE: -334570.0s (-2.99%) ↓ LEPIEJ
+
+--- Krawędź: -21046520#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11277910.0s
+  vs BASELINE: +80439.0s (+0.72%) ↑ GORZEJ
+
+--- Krawędź: 19844875#2 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11185087.0s
+  vs BASELINE: -12384.0s (-0.11%) ↓ LEPIEJ
+
+--- PODSUMOWANIE seed=144 ---
+  Krawędź                           Metryka      Różnica        %
+  --------------------------------------------------------------
+  BASELINE                       11197471.0
+  475556403#1                    10862901.0    -334570.0   -2.99%
+  -21046520#1                    11277910.0     +80439.0   +0.72%
+  19844875#2                     11185087.0     -12384.0   -0.11%
+
+============================================================
+SEED: 42
+============================================================
+Generowanie tripów startowych...
+Generowanie tripów flow...
+Generowanie tras (baseline)...
+Success.
+Symulacja baseline...
+
+--- METRYKA GŁÓWNA ---
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11445478.0s
+
+--- SZCZEGÓŁY ---
+  Ukończone przejazdy                   16400.00
+  Śr. czas podróży [s]                    697.89
+  Śr. czas oczekiwania [s]                173.97
+  Śr. strata czasu [s]                    307.99
+  Łączna strata czasu [s]             5051067.50
+  Śr. dł. trasy [m]                      4984.52
+
+--- SUMMARY ---
+  Maks. pojazdów na sieci:    2537
+  Maks. oczekujących:         467
+  Śr. prędkość [m/s]:         7.33
+  Łącznie ukończonych:        16400
+  Odrzucone:                  0
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11445478.0s
+
+--- Krawędź: 475556403#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16395
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11174084.0s
+  vs BASELINE: -271394.0s (-2.37%) ↓ LEPIEJ
+
+--- Krawędź: -21046520#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11658370.0s
+  vs BASELINE: +212892.0s (+1.86%) ↑ GORZEJ
+
+--- Krawędź: 19844875#2 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11420916.0s
+  vs BASELINE: -24562.0s (-0.21%) ↓ LEPIEJ
+
+--- PODSUMOWANIE seed=42 ---
+  Krawędź                           Metryka      Różnica        %
+  --------------------------------------------------------------
+  BASELINE                       11445478.0
+  475556403#1                    11174084.0    -271394.0   -2.37%
+  -21046520#1                    11658370.0    +212892.0   +1.86%
+  19844875#2                     11420916.0     -24562.0   -0.21%
+
+============================================================
+SEED: 200
+============================================================
+Generowanie tripów startowych...
+Generowanie tripów flow...
+Generowanie tras (baseline)...
+Success.
+Symulacja baseline...
+
+--- METRYKA GŁÓWNA ---
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11191276.0s
+
+--- SZCZEGÓŁY ---
+  Ukończone przejazdy                   16400.00
+  Śr. czas podróży [s]                    682.39
+  Śr. czas oczekiwania [s]                165.37
+  Śr. strata czasu [s]                    293.06
+  Łączna strata czasu [s]             4806191.92
+  Śr. dł. trasy [m]                      4990.98
+
+--- SUMMARY ---
+  Maks. pojazdów na sieci:    2506
+  Maks. oczekujących:         432
+  Śr. prędkość [m/s]:         7.48
+  Łącznie ukończonych:        16400
+  Odrzucone:                  0
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11191276.0s
+
+--- Krawędź: 475556403#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16396
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      10923625.0s
+  vs BASELINE: -267651.0s (-2.39%) ↓ LEPIEJ
+
+--- Krawędź: -21046520#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11633491.0s
+  vs BASELINE: +442215.0s (+3.95%) ↑ GORZEJ
+
+--- Krawędź: 19844875#2 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11376034.0s
+  vs BASELINE: +184758.0s (+1.65%) ↑ GORZEJ
+
+--- PODSUMOWANIE seed=200 ---
+  Krawędź                           Metryka      Różnica        %
+  --------------------------------------------------------------
+  BASELINE                       11191276.0
+  475556403#1                    10923625.0    -267651.0   -2.39%
+  -21046520#1                    11633491.0    +442215.0   +3.95%
+  19844875#2                     11376034.0    +184758.0   +1.65%
+
+============================================================
+SEED: 777
+============================================================
+Generowanie tripów startowych...
+Generowanie tripów flow...
+Generowanie tras (baseline)...
+Success.
+Symulacja baseline...
+
+--- METRYKA GŁÓWNA ---
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11489782.0s
+
+--- SZCZEGÓŁY ---
+  Ukończone przejazdy                   16400.00
+  Śr. czas podróży [s]                    700.60
+  Śr. czas oczekiwania [s]                173.24
+  Śr. strata czasu [s]                    310.66
+  Łączna strata czasu [s]             5094747.68
+  Śr. dł. trasy [m]                      5004.42
+
+--- SUMMARY ---
+  Maks. pojazdów na sieci:    2538
+  Maks. oczekujących:         482
+  Śr. prędkość [m/s]:         7.29
+  Łącznie ukończonych:        16400
+  Odrzucone:                  0
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11489782.0s
+
+--- Krawędź: 475556403#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16395
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11444729.0s
+  vs BASELINE: -45053.0s (-0.39%) ↓ LEPIEJ
+
+--- Krawędź: -21046520#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11871634.0s
+  vs BASELINE: +381852.0s (+3.32%) ↑ GORZEJ
+
+--- Krawędź: 19844875#2 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11217646.0s
+  vs BASELINE: -272136.0s (-2.37%) ↓ LEPIEJ
+
+--- PODSUMOWANIE seed=777 ---
+  Krawędź                           Metryka      Różnica        %
+  --------------------------------------------------------------
+  BASELINE                       11489782.0
+  475556403#1                    11444729.0     -45053.0   -0.39%
+  -21046520#1                    11871634.0    +381852.0   +3.32%
+  19844875#2                     11217646.0    -272136.0   -2.37%
+
+============================================================
+SEED: 1337
+============================================================
+Generowanie tripów startowych...
+Generowanie tripów flow...
+Generowanie tras (baseline)...
+Success.
+Symulacja baseline...
+
+--- METRYKA GŁÓWNA ---
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11441243.0s
+
+--- SZCZEGÓŁY ---
+  Ukończone przejazdy                   16400.00
+  Śr. czas podróży [s]                    697.64
+  Śr. czas oczekiwania [s]                174.46
+  Śr. strata czasu [s]                    306.56
+  Łączna strata czasu [s]             5027531.72
+  Śr. dł. trasy [m]                      5004.63
+
+--- SUMMARY ---
+  Maks. pojazdów na sieci:    2567
+  Maks. oczekujących:         503
+  Śr. prędkość [m/s]:         7.36
+  Łącznie ukończonych:        16400
+  Odrzucone:                  0
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11441243.0s
+
+--- Krawędź: 475556403#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16394
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11195680.0s
+  vs BASELINE: -245563.0s (-2.15%) ↓ LEPIEJ
+
+--- Krawędź: -21046520#1 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11239788.0s
+  vs BASELINE: -201455.0s (-1.76%) ↓ LEPIEJ
+
+--- Krawędź: 19844875#2 ---
+Generuję trasy...
+Success.
+Uruchamiam symulację...
+  Ukończone:    16400
+  Nieukończone: 0 (kara: 3600s każdy)
+  METRYKA:      11400241.0s
+  vs BASELINE: -41002.0s (-0.36%) ↓ LEPIEJ
+
+--- PODSUMOWANIE seed=1337 ---
+  Krawędź                           Metryka      Różnica        %
+  --------------------------------------------------------------
+  BASELINE                       11441243.0
+  475556403#1                    11195680.0    -245563.0   -2.15%
+  -21046520#1                    11239788.0    -201455.0   -1.76%
+  19844875#2                     11400241.0     -41002.0   -0.36%
+
+============================================================
+ZBIORCZE PODSUMOWANIE WSZYSTKICH SEEDÓW
+============================================================
+
+Krawędź: 475556403#1
+  Średnia zmiana: -2.06%
+  Min: -2.99%  Max: -0.39%
+  Spójny kierunek: TAK
+
+Krawędź: -21046520#1
+  Średnia zmiana: +1.62%
+  Min: -1.76%  Max: +3.95%
+  Spójny kierunek: NIE
+
+Krawędź: 19844875#2
+  Średnia zmiana: -0.28%
+  Min: -2.37%  Max: +1.65%
+  Spójny kierunek: NIE
