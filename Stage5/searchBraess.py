@@ -1,5 +1,5 @@
 import sumolib
-from metrics import print_metrics, compute_metric, get_top_edges
+from metrics import print_metrics, compute_metric, get_top_edges, count_completed
 from pipeline import *
 
 SUMO_TOOLS    = r"C:\Program Files (x86)\Eclipse\Sumo\tools"
@@ -8,6 +8,8 @@ INITIAL_TRIPS = "data/initial_trips.xml"
 FLOW_TRIPS    = "data/flow_trips.xml"
 BASELINE_DIR  = "output/baseline"
 TOP_N         = 3
+SEEDS         = [144, 42, 200, 777, 1337]
+TOP_EDGES     = ["475556403#1", "-21046520#1", "19844875#2"]
 
 def find_related_edges(net_file, base_edge_id):
     net = sumolib.net.readNet(net_file, withInternal=False)
@@ -38,8 +40,9 @@ def search_braess(baseline_dir=BASELINE_DIR, top_n=TOP_N):
     print("=" * 60)
     print("WCZYTYWANIE WYNIKÓW BASELINE")
     print("=" * 60)
-    print_metrics(baseline_dir)
-    baseline_metric = compute_metric(baseline_dir)
+    total_trips = count_completed(baseline_dir)
+    print_metrics(baseline_dir, total_trips)
+    baseline_metric = compute_metric(baseline_dir, total_trips)
 
     top_edges = get_top_edges(baseline_dir, top_n)
     print(f"\nTop {top_n} kandydatów: {top_edges}")
@@ -65,8 +68,8 @@ def search_braess(baseline_dir=BASELINE_DIR, top_n=TOP_N):
         print("Uruchamiam symulację...")
         run_simulation(net_file, routes_file, output_dir)
 
-        print_metrics(output_dir)
-        scenario_metric = compute_metric(output_dir)
+        print_metrics(output_dir, total_trips)
+        scenario_metric = compute_metric(output_dir, total_trips)
 
         if baseline_metric and scenario_metric:
             diff = scenario_metric - baseline_metric
@@ -84,5 +87,57 @@ def search_braess(baseline_dir=BASELINE_DIR, top_n=TOP_N):
     for eid, r in results.items():
         print(f"  {eid:<25} {r['metric']:>15.1f} {r['diff']:>+12.1f} {r['pct']:>+7.2f}%")
 
+
+def compare_results_seeded(seeds=SEEDS, edge_ids=TOP_EDGES):
+    """Tylko porównuje gotowe wyniki dla każdego seeda - bez generowania."""
+    all_results = {}
+
+    for seed in seeds:
+        baseline_dir = f"output/baseline_seed{seed}"
+        print("\n" + "=" * 60)
+        print(f"SEED: {seed}  —  BASELINE: {baseline_dir}")
+        print("=" * 60)
+
+        if not os.path.exists(baseline_dir):
+            print(f"  BRAK FOLDERU BASELINE — pomijam seed {seed}")
+            continue
+
+        total_trips = count_completed(baseline_dir)
+        baseline_metric = compute_metric(baseline_dir, total_trips)
+        results = {}
+
+        for edge_id in edge_ids:
+            safe_id = edge_id.replace("-", "neg_")
+            output_dir = f"output/no_{safe_id}_seed{seed}"
+
+            if not os.path.exists(output_dir):
+                print(f"  BRAK: {output_dir} — pomijam")
+                continue
+
+            scenario_metric = compute_metric(output_dir, total_trips)
+
+            if baseline_metric and scenario_metric:
+                diff = scenario_metric - baseline_metric
+                pct = (diff / baseline_metric) * 100
+                sign = "↑ GORZEJ" if diff > 0 else "↓ LEPIEJ"
+                print(f"  {edge_id:<25} {diff:+.1f}s ({pct:+.2f}%) {sign}")
+                results[edge_id] = {"metric": scenario_metric, "diff": diff, "pct": pct}
+
+        all_results[seed] = {"baseline": baseline_metric, "results": results}
+
+    print("\n" + "=" * 60)
+    print("ZBIORCZE PODSUMOWANIE")
+    print("=" * 60)
+    for edge_id in edge_ids:
+        diffs = [all_results[s]["results"].get(edge_id, {}).get("pct")
+                 for s in seeds if s in all_results]
+        diffs = [d for d in diffs if d is not None]
+        if not diffs:
+            continue
+        avg = sum(diffs) / len(diffs)
+        consistent = all(d < 0 for d in diffs) or all(d > 0 for d in diffs)
+        print(
+            f"  {edge_id:<25}  śr: {avg:+.2f}%  min: {min(diffs):+.2f}%  max: {max(diffs):+.2f}%  spójny: {'TAK' if consistent else 'NIE'}")
+
 if __name__ == "__main__":
-    search_braess()
+    compare_results_seeded()

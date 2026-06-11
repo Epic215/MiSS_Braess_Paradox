@@ -2,7 +2,7 @@ import os
 import subprocess
 from pipeline import generate_initial_trips, generate_flow_trips, generate_routes, generate_routes_modified, \
     run_simulation
-from metrics import compute_metric, print_metrics
+from metrics import compute_metric, print_metrics, count_completed
 from searchBraess import create_network_without_edge
 
 NET_FILE = "net_xml/big_fragment_krakow_fixed.net.xml"
@@ -33,8 +33,9 @@ def run_experiment(seed):
     print("Symulacja baseline...")
     run_simulation(NET_FILE, routes_file, baseline_dir, seed = str(seed))
 
-    print_metrics(baseline_dir)
-    baseline_metric = compute_metric(baseline_dir)
+    total_trips = count_completed(baseline_dir)
+    print_metrics(baseline_dir, total_trips)
+    baseline_metric = compute_metric(baseline_dir, total_trips)
 
     results = {}
 
@@ -56,7 +57,7 @@ def run_experiment(seed):
         print("Uruchamiam symulację...")
         run_simulation(net_file, routes_mod, output_dir, seed = str(seed))
 
-        scenario_metric = compute_metric(output_dir)
+        scenario_metric = compute_metric(output_dir, total_trips)
 
         if baseline_metric and scenario_metric:
             diff = scenario_metric - baseline_metric

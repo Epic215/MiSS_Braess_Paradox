@@ -6,37 +6,39 @@ PENALTY = 3600
 PERIOD = 900
 
 
-def compute_metric(output_dir):
+def compute_metric(output_dir, total_trips=None):
     tripinfo_file = f"{output_dir}/tripinfo.xml"
-    summary_file = f"{output_dir}/summary.xml"
-    if not os.path.exists(tripinfo_file):
-        print(f"Brak pliku: {tripinfo_file}")
-        return None
 
     tree = ET.parse(tripinfo_file)
-    total_time, completed, not_completed = 0, 0, 0
+    total_time, completed = 0, 0
 
     for trip in tree.getroot().findall("tripinfo"):
-        arrival = float(trip.get("arrival", "-1"))
-        duration = float(trip.get("duration", 0))
-        if arrival >= 0:
-            total_time += duration
-            completed += 1
-        else:
-            total_time += PENALTY
-            not_completed += 1
+        total_time += float(trip.get("duration", 0))
+        completed += 1
 
-    if os.path.exists(summary_file):
-        steps = parse_summary(summary_file)
-        discarded = steps[-1]["discarded"] if steps else 0
-        if discarded > 0:
-            not_completed += discarded
-            total_time += discarded * PENALTY
+    # liczba wszystkich tripów pochodzi z baseline (tam wszystkie dojeżdżają,
+    # więc total_trips = liczba ukończonych w baseline). Gdy nie podano,
+    # przyjmujemy ukończone z tego scenariusza (czyli 0 nieukończonych).
+    if total_trips is None:
+        total_trips = completed
 
+    not_completed = total_trips - completed
+    total_time   += not_completed * PENALTY
+
+    print(f"  Wszystkie:    {total_trips}")
     print(f"  Ukończone:    {completed}")
     print(f"  Nieukończone: {not_completed} (kara: {PENALTY}s każdy)")
     print(f"  METRYKA:      {total_time:.1f}s")
     return total_time
+
+
+def count_completed(output_dir):
+    """Liczba ukończonych tripów w danym scenariuszu (z tripinfo.xml)."""
+    tripinfo_file = f"{output_dir}/tripinfo.xml"
+    if not os.path.exists(tripinfo_file):
+        return 0
+    tree = ET.parse(tripinfo_file)
+    return len(tree.getroot().findall("tripinfo"))
 
 
 def parse_tripinfo(output_dir):
@@ -70,6 +72,8 @@ def parse_summary(summary_file):
     for step in tree.getroot().findall("step"):
         steps.append({
             "time": float(step.get("time", 0)),
+            "loaded": int(step.get("loaded", 0)),
+            "inserted": int(step.get("inserted", 0)),
             "running": int(step.get("running", 0)),
             "waiting": int(step.get("waiting", 0)),
             "ended": int(step.get("ended", 0)),
@@ -105,9 +109,9 @@ def get_top_edges(output_dir, top_n=3):
     return [e["id"] for e in result[:top_n]]
 
 
-def print_metrics(output_dir):
+def print_metrics(output_dir, total_trips=None):
     print("\n--- METRYKA GŁÓWNA ---")
-    compute_metric(output_dir)
+    compute_metric(output_dir, total_trips)
 
     print("\n--- SZCZEGÓŁY ---")
     trip = parse_tripinfo(output_dir)
