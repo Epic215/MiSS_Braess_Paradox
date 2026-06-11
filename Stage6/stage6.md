@@ -217,29 +217,14 @@ Wniosek: zmiany start/koniec to w większości artefakt sposobu generowania tras
   -1.00%, najlepszy zestaw -3.18%), ale wystarczy jedna krytyczna arteria w
   zestawie, by całkowicie go zamaskować (worst +29.6%, mix +14.5%, rand3
   +10.9%).
+- Wyniki opierają się na **syntetycznie generowanym ruchu** (`randomTrips.py`),
+  który tylko przybliża rzeczywiste wzorce podróży. Aby wnioski były wiarygodne
+  dla realnej sieci, warto oprzeć symulację o **prawdziwe dane** o popycie
+  (np. rzeczywiste macierze źródło–cel, dane GPS/telekomunikacyjne, liczniki
+  ruchu) zamiast losowego rozkładu par (jeśli takie dane by istniały). Równolegle warto **poprawić sam
+  przepływ** — bardziej realistyczny model wjazdu/wyjazdu, kalibracja natężenia
+  i sygnalizacji oraz ograniczenie sztucznych teleportacji — żeby zmiany
+  metryki odzwierciedlały rzeczywisty efekt sieci, a nie artefakty generacji
+  ruchu.
 
 ---
-
-## Dalsze kierunki
-
-- **Więcej seedów dla kandydatów granicznych** – `26372275#4` (7/8) i pozostałe
-  krawędzie z wysoką średnią, ale niepełną spójnością, warto przeliczyć na
-  20–30 seedach, by odróżnić rzeczywisty efekt Braessa od pojedynczego
-  odstającego wyniku.
-- **Dokończenie testów kombinacji** – sprawdzić, czy usunięcie kilku „dobrych"
-  krawędzi naraz sumuje poprawę, czy efekty się znoszą (np. dwie krawędzie
-  poprawiające osobno mogą razem przekierować ruch na wspólne wąskie gardło).
-- **Czystszy routing dla porównań** – wariant generowania bez
-  `--repair.from/to` i bez `--weights.random-factor`, żeby pary źródło–cel były
-  identyczne jak w baseline; pozwoli oddzielić efekt Braessa od artefaktów
-  routingu (zmiany start/koniec).
-- **Zależność od natężenia ruchu** – powtórzyć skan dla kilku poziomów popytu
-  (mniej/więcej pojazdów) i sprawdzić, przy jakim zatłoczeniu efekt Braessa dla
-  `277424365#1`/`475556403#1` jest najsilniejszy — paradoks zwykle ujawnia się
-  dopiero powyżej pewnego obciążenia.
-- **Analiza przestrzenna** – nałożyć krawędzie poprawiające/pogarszające na mapę
-  sieci, żeby sprawdzić, czy kandydaci na Braessa tworzą sensowny wzorzec
-  (np. skróty równoległe do głównych arterii).
-- **Walidacja metryki** – sprawdzić wrażliwość wyników na wysokość kary za
-  nieukończone przejazdy (3600 s) oraz na `--time-to-teleport`, bo to one
-  najmocniej wpływają na znak zmiany przy seedach granicznych.
