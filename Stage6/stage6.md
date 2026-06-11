@@ -136,20 +136,38 @@ procent, podczas gdy efekt Braessa po lewej to zaledwie kilka procent.
 
 ## Wyniki – testy kombinacji (podwójne / potrójne)
 
-*(sekcja do uzupełnienia po przeliczeniu testów best / worst / mix / rand3)*
+Testy przeprowadzone na ustalonym seedzie (144), po 10 zestawów każdy.
 
 | Test | Średnia % | Polepszyło | Najlepszy zestaw | Najgorszy zestaw |
 |---|---|---|---|---|
-| best |  |  |  |  |
-| worst |  |  |  |  |
-| mix |  |  |  |  |
-| rand3 |  |  |  |  |
+| best | **-1.00%** | 8/10 | `150023225#1;277424365#1` (-3.18%) | `19844875#2;216565683#1` (+2.37%) |
+| worst | **+29.64%** | 0/10 | `-21046520#2;80576567#1` (+3.20%) | `-372635877;19845066` (+73.53%) |
+| mix | **+14.53%** | 1/10 | `475556403#1;-24837773` (-1.25%) | `19844875#2;-372635877` (+54.37%) |
+| rand3 | **+10.90%** | 2/10 | `-21046520#1;19844875#2;297145076#0` (-0.74%) | `-372635877;24345907#9;431445479#2` (+34.23%) |
 
-Pytania badawcze do tej sekcji:
-- czy usunięcie kilku „dobrych" krawędzi naraz sumuje efekt Braessa, czy się
-  znosi,
-- czy usuwanie najgorszych krawędzi zawsze pogarsza tak samo,
-- jak zachowuje się losowa kombinacja względem celowanej.
+Interpretacja:
+
+- **best** – usuwanie par dobrych krawędzi przeciętnie **utrzymuje efekt
+  Braessa** (średnia -1.00%, 8/10 poprawiło). Najlepszy zestaw
+  `150023225#1;277424365#1` (-3.18%) daje poprawę silniejszą niż każda z tych
+  krawędzi osobno (`277424365#1` to -2.40% single), co sugeruje, że efekty
+  **częściowo się sumują**. Nie zawsze jednak: zestawy z `19844875#2` potrafiły
+  wyjść na plus — dorzucenie krawędzi o niestabilnym znaku psuje wynik pary.
+- **worst** – usunięcie dwóch arterii naraz pogarsza ruch **drastycznie i
+  zawsze** (0/10, średnio +29.6%, skrajnie +73.5%). Efekty kumulują się tu
+  wyraźnie — utrata dwóch kluczowych krawędzi jednocześnie rozkłada sieć
+  mocniej niż suma pojedynczych usunięć.
+- **mix** – wynik prawie zawsze dominowany przez krawędź „złą": gdy w parze
+  jest arteria (`-372635877`, `-372636138`), zmiana skacze do +40–55%. Tylko
+  jeden zestaw poprawił ruch (`475556403#1;-24837773`, -1.25%) — gdy „zła"
+  krawędź była łagodna, krawędź Braessa zdołała przeważyć.
+- **rand3** – losowe trójki z top 30 przeważnie pogarszają (średnio +10.9%),
+  bo statystycznie częściej trafiają na krawędzie pogarszające niż na rzadkie
+  krawędzie Braessa. Tylko 2/10 dało poprawę.
+
+Wniosek ogólny: **efekt Braessa kumuluje się tylko między krawędziami, które
+samodzielnie go wykazują** (test best), natomiast obecność choćby jednej
+krytycznej arterii w zestawie całkowicie go maskuje (mix, worst, rand3).
 
 ---
 
@@ -200,8 +218,11 @@ Wniosek: zmiany start/koniec to w większości artefakt sposobu generowania tras
 - Weryfikacja tras potwierdziła, że metoda zachowuje pary źródło–cel dla
   ~93% pojazdów; rozbieżności wyjaśniono mechanizmem `--repair` i losowości
   routingu.
-- Przygotowano ramy do badania **kombinacji** usunięć (podwójne, potrójne),
-  które pozwolą sprawdzić, czy efekt Braessa się kumuluje.
+- Zbadano **kombinacje** usunięć (podwójne i potrójne): efekt Braessa kumuluje
+  się między krawędziami, które samodzielnie poprawiają ruch (test best,
+  -1.00%, najlepszy zestaw -3.18%), ale wystarczy jedna krytyczna arteria w
+  zestawie, by całkowicie go zamaskować (worst +29.6%, mix +14.5%, rand3
+  +10.9%).
 
 ---
 
