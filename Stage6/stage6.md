@@ -200,12 +200,6 @@ Wniosek: zmiany start/koniec to w większości artefakt sposobu generowania tras
 źródło–cel. Dla „czystego" porównania można by wyłączyć `--repair.from/to` oraz
 `--weights.random-factor`, kosztem mniejszej różnorodności tras.
 
-### Inne
-- Pełny skan (top 30 × 8 seedów) jest kosztowny obliczeniowo (~6 h) — testy
-  kombinacji świadomie ograniczono do jednego ustalonego seeda.
-- Wyniki dopisywane są do `results.csv`; przy ponownym uruchomieniu tego samego
-  testu należy najpierw usunąć stare wiersze, aby uniknąć podwójnego liczenia.
-
 ---
 
 ## Wnioski
